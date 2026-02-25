@@ -1,12 +1,40 @@
-<div class="w-full max-w-4xl text-center mx-auto">
-
-  <!-- eyebrow -->
-  <!-- headline -->
-  <!-- subtext -->
-
-  <!-- ✅ PASTE YOUR ORIGINAL Name/Email/Button block RIGHT HERE -->
-
-</div>    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash Flow Banking | Your Private Capital System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#050D1A',
+              900: '#0A1628',
+              800: '#0F2040',
+              700: '#152B58',
+              600: '#1A3570',
+            },
+            gold: {
+              300: '#F0D080',
+              400: '#D4AF37',
+              500: '#C49A22',
+              600: '#A07D10',
+            },
+            cream: '#F5F0E8',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          },
+        }
+      }
+    }
   </script>
   <style>
     * { box-sizing: border-box; }
@@ -21,38 +49,6 @@
         radial-gradient(ellipse at 80% 80%, rgba(21,43,88,0.6) 0%, transparent 60%),
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    
-    /* ==========================
-   HERO BACKGROUND (Funnel/hero-bg.jpg)
-   ========================== */
-
-#hero{
-  background-image: url('hero-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Fade overlay so the text POPS */
-#hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  background: linear-gradient(
-    180deg,
-    rgba(5,11,20,0.55) 0%,
-    rgba(5,11,20,0.70) 55%,
-    rgba(5,11,20,0.85) 100%
-  );
-}
-
-/* Ensure all hero content sits above the overlay */
-#hero > *{
-  position: relative;
-  z-index: 1;
-}
 
     .gold-line {
       background: linear-gradient(90deg, transparent, #D4AF37, transparent);
@@ -160,60 +156,65 @@
   <!-- ═══════════════════════════════════════════
        HERO SECTION
   ═══════════════════════════════════════════ -->
-<section id="hero" class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+  <section class="relative px-6 pt-16 pb-20 md:pt-24 md:pb-28 flex justify-center overflow-hidden">
+    <!-- Decorative background glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold-400 opacity-5 blur-[100px] pointer-events-none"></div>
 
-  <!-- Background handled in CSS -->
+    <div class="max-w-4xl w-full text-center">
 
-  <!-- Decorative background glow -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold-400 opacity-5 blur-[100px] pointer-events-none z-0"></div>
-
-  <!-- Centering Wrapper -->
-  <div class="relative z-10 flex items-center justify-center px-6">
-
-    <!-- Content Container -->
-    <div class="w-full max-w-4xl text-center mx-auto">
-
-  <!-- eyebrow -->
-  <!-- headline -->
-  <!-- subtext -->
-
-  <!-- ✅ PASTE YOUR ORIGINAL Name/Email/Button block RIGHT HERE -->
-
-</div>
-
-      <!-- KEEP ALL YOUR EXISTING HERO CONTENT HERE EXACTLY AS IS -->
-
-      <!-- Your eyebrow text -->
-      <p class="gold tracking-[0.3em] text-sm mb-6">
-        FOR BUSINESS OWNERS & HIGH-INCOME INVESTORS
+      <!-- Eyebrow -->
+      <p class="fade-in font-body text-xs tracking-[0.3em] uppercase gold-text mb-6">
+        For Business Owners &amp; High-Income Investors
       </p>
 
-      <!-- Your headline -->
-      <h1 class="font-serif text-4xl md:text-6xl leading-tight mb-6">
-        Stop Letting Banks <br>
-        <span class="gold">Decide When You Can Move.</span>
+      <!-- Main headline -->
+      <h1 class="fade-in fade-in-delay-1 font-display font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-6">
+        Stop Letting Banks<br/>
+        <em class="gold-text not-italic">Decide When You Can Move.</em>
       </h1>
 
-      <!-- Subtext -->
-      <p class="text-lg text-white/80 mb-10 max-w-3xl mx-auto">
-        A properly structured whole life policy gives you liquid, compounding capital —
-        accessible on your terms, not a lender’s timeline, and growing even while you deploy it.
+      <!-- Sub-headline -->
+      <p class="fade-in fade-in-delay-2 font-body font-light text-lg md:text-xl text-cream opacity-75 max-w-2xl mx-auto leading-relaxed mb-10">
+        A properly structured whole life policy gives you liquid, compounding capital — accessible on your terms, not a lender's timeline, and growing even while you deploy it.
       </p>
 
-      <form id="hero-form" onsubmit="handleFormSubmit(event)" class="w-full max-w-xl flex flex-col sm:flex-row gap-3">
-          <input type="text" name="name" placeholder="First Name" required="" class="flex-1 px-5 py-4 rounded font-body text-sm">
-          <input type="email" name="email" placeholder="Email Address" required="" class="flex-1 px-5 py-4 rounded font-body text-sm">
-          <button type="submit" class="btn-gold px-6 py-4 rounded font-body font-600 text-sm tracking-wider text-navy-900 whitespace-nowrap uppercase">
+      <!-- CTA + Form -->
+      <div class="fade-in fade-in-delay-3 flex flex-col items-center gap-5">
+
+        <form
+          id="hero-form"
+          onsubmit="handleFormSubmit(event)"
+          class="w-full max-w-xl flex flex-col sm:flex-row gap-3"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="First Name"
+            required
+            class="flex-1 px-5 py-4 rounded font-body text-sm"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            class="flex-1 px-5 py-4 rounded font-body text-sm"
+          />
+          <button
+            type="submit"
+            class="btn-gold px-6 py-4 rounded font-body font-600 text-sm tracking-wider text-navy-900 whitespace-nowrap uppercase"
+          >
             Get the Free Guide →
           </button>
         </form>
 
-      <!-- Your existing form block stays unchanged -->
-      <!-- KEEP YOUR CURRENT INPUT + BUTTON STRUCTURE EXACTLY HERE -->
+        <p class="font-body text-xs text-cream opacity-40 tracking-wide">
+          No sales call required. No obligation. Instant access.
+        </p>
+      </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Gold divider line -->
   <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
@@ -260,7 +261,7 @@
        3 BENEFIT PILLARS
   ═══════════════════════════════════════════ -->
   <section class="px-6 py-16 md:py-20 flex justify-center navy-deep">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-5xl w-full">
 
       <div class="text-center mb-14">
         <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">What Changes When You Have This</p>
