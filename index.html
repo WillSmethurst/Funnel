@@ -79,7 +79,8 @@
       background: linear-gradient(135deg, #D4AF37 0%, #C49A22 50%, #D4AF37 100%);
       background-size: 200% 200%;
       transition: all 0.3s ease;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+      font-weight: 600;
     }
     .btn-gold:hover {
       background-position: right center;
@@ -116,9 +117,9 @@
     }
 
     input[type="text"], input[type="email"] {
-      background: rgba(5,11,20,0.55);
+      background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.25);
-      color: #F8F7F4;
+      color: #FFFFFF;
       transition: border-color 0.3s ease;
     }
     input[type="text"]:focus, input[type="email"]:focus {
@@ -511,19 +512,17 @@
   <!-- ═══════════════════════════════════════════
        FINAL CTA
   ═══════════════════════════════════════════ -->
-  <section
-  class="relative px-6 py-20 md:py-28 flex justify-center overflow-hidden"
-  style="background-image: url('footer-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
->
+  <section class="relative px-6 py-20 md:py-28 flex justify-center overflow-hidden"
+  style="background-image: url('footer-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(5,11,20,0.75) 0%, rgba(5,11,20,0.85) 100%); z-index:1;"></div>
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gold-400 opacity-5 blur-[80px] pointer-events-none"></div>
 
     <div class="relative max-w-2xl w-full text-center">
-      <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-4">Begin Here</p>
-      <h2 class="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style="color:#F8F7F4; text-shadow: 0 2px 12px rgba(0,0,0,0.45);">
+      <p class="font-body text-xs uppercase mb-4" style="color:#C7B992; letter-spacing: 0.35em; text-shadow: 0 0 10px rgba(199,185,146,0.35);">Begin Here</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style="color:#FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.55);">
         Your Legacy Starts With<br/>the Right Foundation.
       </h2>
-      <p class="font-body font-light text-base leading-relaxed mb-10 max-w-lg mx-auto" style="color: rgba(248,247,244,0.85);">
+      <p class="font-body font-light text-base leading-relaxed mb-10 max-w-lg mx-auto" style="color: rgba(255,255,255,0.9);">
         Download the free Cash Flow Banking guide and understand exactly how this strategy works — before making any decisions.
       </p>
 
@@ -531,6 +530,7 @@
         id="footer-form"
         onsubmit="handleFormSubmit(event)"
         class="flex flex-col gap-3 max-w-md mx-auto"
+        style="backdrop-filter: blur(8px); background: rgba(5,11,20,0.65); border: 1px solid rgba(255,255,255,0.15); border-radius: 0.5rem; padding: 1.5rem;"
       >
         <input
           type="text"
