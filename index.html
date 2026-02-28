@@ -135,37 +135,44 @@
       box-shadow: 12px 12px 40px rgba(0,0,0,0.5), -2px -2px 20px rgba(212,175,55,0.05);
     }
 
-    /* Real Results / Testimonials section */
+    /* Real Results / Testimonials section — Option B */
     .testimonials-section {
       position: relative;
-      background-color: #0A1628;
+      overflow: hidden;
+      background-color: #080F1C;
       background-image:
-        radial-gradient(circle at top left, rgba(199,185,146,0.08) 0%, transparent 45%),
-        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.05) 0%, transparent 40%);
+        radial-gradient(ellipse 65% 55% at 10% 18%, rgba(199,185,146,0.12) 0%, rgba(180,160,100,0.04) 35%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 55% 50%, rgba(100,125,160,0.05) 0%, transparent 55%),
+        linear-gradient(175deg, rgba(9,15,28,0.92) 0%, rgba(5,9,20,1) 100%);
     }
+
+    /* Full-canvas SVG linework — Option B gold strokes */
     .testimonials-section::before {
       content: '';
       position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background-image:
-        repeating-linear-gradient(
-          45deg,
-          rgba(199,185,146,0.10) 0px,
-          rgba(199,185,146,0.10) 1px,
-          transparent 1px,
-          transparent 80px
-        ),
-        repeating-linear-gradient(
-          -45deg,
-          rgba(199,185,146,0.08) 0px,
-          rgba(199,185,146,0.08) 1px,
-          transparent 1px,
-          transparent 80px
-        );
-      opacity: 0.5;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='340' viewBox='0 0 960 340' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='rgba(199%2C185%2C146%2C0.28)' stroke-width='1'%3E%3Cpolyline points='-20%2C240 100%2C170 -20%2C100'/%3E%3Cpolyline points='-20%2C225 82%2C170 -20%2C115'/%3E%3Cpolyline points='-20%2C210 65%2C170 -20%2C130'/%3E%3Cpolyline points='-20%2C195 48%2C170 -20%2C145'/%3E%3Cpolyline points='410%2C-10 480%2C55 550%2C-10'/%3E%3Cpolyline points='425%2C-10 480%2C42 535%2C-10'/%3E%3Cpolyline points='440%2C-10 480%2C28 520%2C-10'/%3E%3Cline x1='780' y1='-10' x2='980' y2='190'/%3E%3Cline x1='980' y1='-10' x2='780' y2='190'/%3E%3Cline x1='830' y1='-10' x2='980' y2='140'/%3E%3Cline x1='930' y1='-10' x2='980' y2='60'/%3E%3Cline x1='780' y1='40' x2='880' y2='-10'/%3E%3Cline x1='780' y1='90' x2='830' y2='-10'/%3E%3Cpolyline points='840%2C20 900%2C85 980%2C20'/%3E%3Cpolyline points='855%2C20 900%2C72 965%2C20'/%3E%3Cpolyline points='870%2C20 900%2C58 950%2C20'/%3E%3Cpolyline points='410%2C350 480%2C285 550%2C350'/%3E%3Cpolyline points='425%2C350 480%2C298 535%2C350'/%3E%3Cpolyline points='440%2C350 480%2C312 520%2C350'/%3E%3C/g%3E%3C/svg%3E");
     }
+
+    /* Bottom-right 4-pointed star */
+    .testimonials-section::after {
+      content: '';
+      position: absolute;
+      bottom: 26px;
+      right: 26px;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L11.5 8.5 L20 10 L11.5 11.5 L10 20 L8.5 11.5 L0 10 L8.5 8.5 Z' fill='rgba(199%2C185%2C146%2C0.75)'/%3E%3C/svg%3E");
+    }
+
     .testimonials-section > * {
       position: relative;
       z-index: 2;
@@ -563,54 +570,6 @@
           </div>
         </div>
 
-        <!-- Testimonial 4 -->
-        <div class="pillar-card rounded p-8 fade-in flex flex-col justify-between">
-          <div>
-            <div class="mb-5">
-              <span class="gold-text text-base">★★★★★</span>
-            </div>
-            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
-              "We were able to pay off the credit card and refinance our home with funds from our Cash Flow Bank. We are paying the loan back our way, our time. It is just wonderful and I am now less afraid of the future."
-            </p>
-          </div>
-          <div class="border-t border-white border-opacity-10 pt-5">
-            <p class="font-body font-medium text-cream text-sm">Monica G.</p>
-            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Homeowner</p>
-          </div>
-        </div>
-
-        <!-- Testimonial 5 -->
-        <div class="pillar-card rounded p-8 fade-in fade-in-delay-1 flex flex-col justify-between">
-          <div>
-            <div class="mb-5">
-              <span class="gold-text text-base">★★★★★</span>
-            </div>
-            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
-              "I watched my Roth account value get cut in half due to market fluctuations. But the value in my Cash Flow Banking policy has only ever grown. It gives me financial peace of mind in such a crazy economy. Thank you!!"
-            </p>
-          </div>
-          <div class="border-t border-white border-opacity-10 pt-5">
-            <p class="font-body font-medium text-cream text-sm">Whitney S.</p>
-            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Policy Holder</p>
-          </div>
-        </div>
-
-        <!-- Testimonial 6 -->
-        <div class="pillar-card rounded p-8 fade-in fade-in-delay-2 flex flex-col justify-between">
-          <div>
-            <div class="mb-5">
-              <span class="gold-text text-base">★★★★★</span>
-            </div>
-            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
-              "Shortly after I opened my policy I lost my job. How amazing it was to use cash value to pay my mortgage while I looked for work. I paid back the loans after I got a new job and then used cash value to pay off old debts. Cash Flow Banking works!"
-            </p>
-          </div>
-          <div class="border-t border-white border-opacity-10 pt-5">
-            <p class="font-body font-medium text-cream text-sm">Michael B.</p>
-            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Policy Holder</p>
-          </div>
-        </div>
-
       </div>
 
       <!-- Pull quote -->
@@ -621,6 +580,19 @@
         </p>
         <p class="font-body text-xs gold-text tracking-[0.25em] uppercase mt-5">— Ron H., Real Estate Investor</p>
         <div class="gold-line mx-auto mt-8 opacity-30" style="max-width:100px;"></div>
+
+        <!-- See More Results Button -->
+        <div class="mt-10">
+          <a
+            href="https://cashflowbanking.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold inline-block px-10 py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+          >
+            See More Results →
+          </a>
+        </div>
+
       </div>
 
     </div>
