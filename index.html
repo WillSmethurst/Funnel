@@ -134,6 +134,42 @@
       border: 1px solid rgba(212,175,55,0.3);
       box-shadow: 12px 12px 40px rgba(0,0,0,0.5), -2px -2px 20px rgba(212,175,55,0.05);
     }
+
+    /* Real Results / Testimonials section */
+    .testimonials-section {
+      position: relative;
+      background-color: #0A1628;
+      background-image:
+        radial-gradient(circle at top left, rgba(199,185,146,0.08) 0%, transparent 45%),
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.05) 0%, transparent 40%);
+    }
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image:
+        repeating-linear-gradient(
+          45deg,
+          rgba(199,185,146,0.10) 0px,
+          rgba(199,185,146,0.10) 1px,
+          transparent 1px,
+          transparent 80px
+        ),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(199,185,146,0.08) 0px,
+          rgba(199,185,146,0.08) 1px,
+          transparent 1px,
+          transparent 80px
+        );
+      opacity: 0.5;
+    }
+    .testimonials-section > * {
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 <body class="bg-texture text-cream">
@@ -466,7 +502,7 @@
   <!-- ═══════════════════════════════════════════
        TESTIMONIALS
   ═══════════════════════════════════════════ -->
-  <section class="px-6 py-16 md:py-24 flex justify-center">
+  <section class="px-6 py-16 md:py-24 flex justify-center testimonials-section">
     <div class="max-w-5xl w-full">
 
       <div class="text-center mb-14">
