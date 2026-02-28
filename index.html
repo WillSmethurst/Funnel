@@ -243,7 +243,7 @@
           <input
             type="text"
             name="name"
-            placeholder="First Name"
+            placeholder="Full Name"
             required
             class="flex-1 px-5 py-4 rounded font-body text-sm"
           />
@@ -687,7 +687,7 @@
         <input
           type="text"
           name="name"
-          placeholder="First Name"
+          placeholder="Full Name"
           required
           class="w-full px-5 py-4 rounded font-body text-sm"
         />
@@ -727,20 +727,68 @@
   </footer>
 
   <script>
+    // ─────────────────────────────────────────────────────────────────
+    // GOOGLE SHEETS INTEGRATION
+    // This function POSTs lead data to a Google Apps Script Web App,
+    // which writes Full Name, Email, and Date Submitted to the sheet.
+    //
+    // SETUP (one-time):
+    //   1. Open your Google Sheet → Extensions → Apps Script
+    //   2. Paste the Apps Script code provided separately into Code.gs
+    //   3. Deploy → New deployment → Web App
+    //      - Execute as: Me
+    //      - Who has access: Anyone
+    //   4. Copy the deployment URL and replace APPS_SCRIPT_URL below
+    // ─────────────────────────────────────────────────────────────────
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOdFPgGYS9tQPLOdVn-hvlNz68nKz2G8Pu-66QhUuBcqRmfAcv-e5-X4Uu2RIJoWi7/exec';
+
     function handleFormSubmit(event) {
       event.preventDefault();
-      // ──────────────────────────────────────────────────────
-      // INTEGRATION NOTE:
-      // Replace this redirect with your actual form handler.
-      // Options:
-      //   - ConvertKit: post to their API endpoint
-      //   - ActiveCampaign: use their embed form action URL
-      //   - Mailchimp: use their form action URL
-      //   - Custom: POST to your backend, then redirect
-      //
-      // After successful submission, redirect to thank-you.html
-      // ──────────────────────────────────────────────────────
-      window.location.href = 'thank-you.html';
+
+      const form = event.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const name  = form.querySelector('input[name="name"]').value.trim();
+      const email = form.querySelector('input[name="email"]').value.trim();
+
+      // Disable button to prevent double-submit
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const payload = { name: name, email: email };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        // Trigger PDF download
+        const link = document.createElement('a');
+        link.href = 'Cash Flow Banking eBook.pdf';
+        link.download = 'Cash Flow Banking eBook.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Redirect to thank-you page after short delay
+        setTimeout(() => {
+          window.location.href = 'thank-you.html';
+        }, 800);
+      })
+      .catch(() => {
+        // Even on error, still deliver the guide and redirect
+        const link = document.createElement('a');
+        link.href = 'Cash Flow Banking eBook.pdf';
+        link.download = 'Cash Flow Banking eBook.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(() => {
+          window.location.href = 'thank-you.html';
+        }, 800);
+      });
     }
 
     // Intersection Observer for scroll-triggered fade-ins
