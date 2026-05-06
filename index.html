@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash Flow Banking | Your Private Capital System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#050D1A',
+              900: '#0A1628',
+              800: '#0F2040',
+              700: '#152B58',
+              600: '#1A3570',
+            },
+            gold: {
+              300: '#cfa85d',
+              400: '#cfa85d',
+              500: '#cfa85d',
+              600: '#cfa85d',
+            },
+            cream: '#F5F0E8',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Jost', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* Background texture */
+    .bg-texture {
+      background-color: #0A1628;
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(212,175,55,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(21,43,88,0.6) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .gold-line {
+      background: linear-gradient(90deg, transparent, #cfa85d, transparent);
+      height: 1px;
+    }
+
+    .gold-text { color: #cfa85d; }
+    .navy-deep { background-color: #050D1A; }
+    .navy-mid { background-color: #0A1628; }
+
+    /* Cream-flipped sections — warm, welcoming fill with navy ink */
+    .cream-section { background-color: #f2efe8; }
+    .cream-section .text-cream { color: #0A1628; }
+    .navy-card { background-color: #0F2040; }
+
+    /* Animated fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .fade-in-delay-1 { animation-delay: 0.15s; }
+    .fade-in-delay-2 { animation-delay: 0.3s; }
+    .fade-in-delay-3 { animation-delay: 0.45s; }
+    .fade-in-delay-4 { animation-delay: 0.6s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #cfa85d 0%, #cfa85d 50%, #cfa85d 100%);
+      background-size: 200% 200%;
+      transition: all 0.3s ease;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+      font-weight: 600;
+    }
+    .btn-gold:hover {
+      background-position: right center;
+      box-shadow: 0 6px 32px rgba(212,175,55,0.4);
+      transform: translateY(-1px);
+    }
+
+    .pillar-card {
+      background: linear-gradient(135deg, #0F2040 0%, #0A1628 100%);
+      border: 1px solid rgba(212,175,55,0.15);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .pillar-card:hover {
+      border-color: rgba(212,175,55,0.4);
+      transform: translateY(-3px);
+    }
+
+    .gold-border-left {
+      border-left: 3px solid #cfa85d;
+    }
+
+    /* Diagonal section divider */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .checklist-item::before {
+      content: '✦';
+      color: #cfa85d;
+      margin-right: 10px;
+      font-size: 0.7em;
+    }
+
+    input[type="text"], input[type="email"] {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #FFFFFF;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus, input[type="email"]:focus {
+      outline: none;
+      border-color: rgba(212,175,55,0.6);
+      background: rgba(5,11,20,0.65);
+    }
+    input::placeholder { color: rgba(255,255,255,0.6); }
+
+    .guide-mockup {
+      background: linear-gradient(145deg, #0F2040, #050D1A);
+      border: 1px solid rgba(212,175,55,0.3);
+      box-shadow: 12px 12px 40px rgba(0,0,0,0.5), -2px -2px 20px rgba(212,175,55,0.05);
+    }
+
+    /* Real Results / Testimonials section — Option B */
+    .testimonials-section {
+      position: relative;
+      overflow: hidden;
+      background-color: #080F1C;
+      background-image:
+        radial-gradient(ellipse 65% 55% at 10% 18%, rgba(199,185,146,0.12) 0%, rgba(180,160,100,0.04) 35%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 55% 50%, rgba(100,125,160,0.05) 0%, transparent 55%),
+        linear-gradient(175deg, rgba(9,15,28,0.92) 0%, rgba(5,9,20,1) 100%);
+    }
+
+    /* Full-canvas SVG linework — Option B gold strokes */
+    .testimonials-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='340' viewBox='0 0 960 340' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='rgba(199%2C185%2C146%2C0.28)' stroke-width='1'%3E%3Cpolyline points='-20%2C240 100%2C170 -20%2C100'/%3E%3Cpolyline points='-20%2C225 82%2C170 -20%2C115'/%3E%3Cpolyline points='-20%2C210 65%2C170 -20%2C130'/%3E%3Cpolyline points='-20%2C195 48%2C170 -20%2C145'/%3E%3Cpolyline points='410%2C-10 480%2C55 550%2C-10'/%3E%3Cpolyline points='425%2C-10 480%2C42 535%2C-10'/%3E%3Cpolyline points='440%2C-10 480%2C28 520%2C-10'/%3E%3Cline x1='780' y1='-10' x2='980' y2='190'/%3E%3Cline x1='980' y1='-10' x2='780' y2='190'/%3E%3Cline x1='830' y1='-10' x2='980' y2='140'/%3E%3Cline x1='930' y1='-10' x2='980' y2='60'/%3E%3Cline x1='780' y1='40' x2='880' y2='-10'/%3E%3Cline x1='780' y1='90' x2='830' y2='-10'/%3E%3Cpolyline points='840%2C20 900%2C85 980%2C20'/%3E%3Cpolyline points='855%2C20 900%2C72 965%2C20'/%3E%3Cpolyline points='870%2C20 900%2C58 950%2C20'/%3E%3Cpolyline points='410%2C350 480%2C285 550%2C350'/%3E%3Cpolyline points='425%2C350 480%2C298 535%2C350'/%3E%3Cpolyline points='440%2C350 480%2C312 520%2C350'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Bottom-right 4-pointed star */
+    .testimonials-section::after {
+      content: '';
+      position: absolute;
+      bottom: 26px;
+      right: 26px;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L11.5 8.5 L20 10 L11.5 11.5 L10 20 L8.5 11.5 L0 10 L8.5 8.5 Z' fill='rgba(199%2C185%2C146%2C0.75)'/%3E%3C/svg%3E");
+    }
+
+    .testimonials-section > * {
+      position: relative;
+      z-index: 2;
+    }
+
+  </style>
+</head>
+<body class="bg-texture text-cream">
+
+  <!-- ═══════════════════════════════════════════
+       TOP BAR / LOGO
+  ═══════════════════════════════════════════ -->
+  <header class="cream-section w-full py-5 px-6 flex justify-center border-b" style="border-color: rgba(10,22,40,0.08);">
+    <div class="max-w-6xl w-full flex items-center justify-between">
+      <!-- LOGO PLACEHOLDER — swap with <img src="your-logo.png" /> -->
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 border border-gold-400 flex items-center justify-center">
+          <span class="gold-text font-display font-bold text-sm">CFB</span>
+        </div>
+        <span class="font-body text-sm tracking-[0.2em] text-cream uppercase opacity-80">CashflowBanking.com</span>
+      </div>
+      <a href="https://cashflowbanking.com/" target="_blank" rel="noopener noreferrer" class="font-body text-xs tracking-widest gold-text uppercase opacity-70 hidden sm:block" style="text-decoration:none;">Your Legacy Starts With You</a>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="relative px-6 pt-16 pb-20 md:pt-24 md:pb-28 flex justify-center overflow-hidden" style="background-image: url('hero-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- Hero background overlay — darkens photo so all text and form elements remain fully legible -->
+    <div class="absolute inset-0 bg-navy-900 opacity-85 pointer-events-none"></div>
+    <!-- Decorative background glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold-400 opacity-5 blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-4xl w-full text-center">
+
+      <!-- Eyebrow -->
+      <p class="fade-in font-body text-xs tracking-[0.3em] uppercase gold-text mb-6">
+        For Those Who Refuse to Leave Success to Chance
+      </p>
+
+      <!-- Main headline -->
+      <h1 class="fade-in fade-in-delay-1 font-display font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-6">
+        Stop Letting Banks<br/>
+        <em class="gold-text not-italic">Decide When You Can Move.</em>
+      </h1>
+
+      <!-- Sub-headline -->
+      <p class="fade-in fade-in-delay-2 font-body font-light text-lg md:text-xl text-cream opacity-75 max-w-2xl mx-auto leading-relaxed mb-10">
+        The ultimate arbitrage isn't found in a market—it's found in control. Elevate your strategy with liquid capital that scales through uninterrupted compounding, fueling your current ventures while securing your family's future.
+      </p>
+
+      <!-- CTA + Form -->
+      <div class="fade-in fade-in-delay-3 flex flex-col items-center gap-5">
+
+        <form
+          id="hero-form"
+          onsubmit="handleFormSubmit(event)"
+          class="w-full max-w-xl flex flex-col sm:flex-row gap-3"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+            class="flex-1 px-5 py-4 rounded font-body text-sm"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            class="flex-1 px-5 py-4 rounded font-body text-sm"
+          />
+          <button
+            type="submit"
+            class="btn-gold px-6 py-4 rounded font-body font-600 text-sm tracking-wider text-navy-900 whitespace-nowrap uppercase"
+          >
+            Get the Free Guide →
+          </button>
+        </form>
+
+        <p class="font-body text-xs text-cream opacity-40 tracking-wide">
+          No sales call required. No obligation. Instant access.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gold divider line -->
+  <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
+
+  <!-- ═══════════════════════════════════════════
+       GUIDE PREVIEW / SOCIAL PROOF
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-24 flex justify-center">
+    <div class="max-w-5xl w-full flex flex-col md:flex-row items-center gap-12 md:gap-16">
+
+      <!-- Guide mockup -->
+      <div class="flex-shrink-0 fade-in" style="position:relative;display:inline-block;">
+          <img
+            src="guide-cover.png"
+            alt="Your Cash Flow Banking Guide"
+            class="w-48 md:w-56 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-[rgba(212,175,55,0.3)]"
+          />
+      </div>
+
+      <!-- Problem agitation copy -->
+      <div class="flex-1 fade-in fade-in-delay-1">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-4">The Problem With Conventional Wisdom</p>
+        <h2 class="font-display text-3xl md:text-4xl text-cream font-semibold leading-snug mb-5">
+          Your capital is either growing,<br/>or it's working. Rarely both.
+        </h2>
+        <div class="space-y-4 font-body font-light text-cream opacity-80 leading-relaxed text-base">
+          <p>
+            The standard wealth-building playbook — stocks, bonds, a savings account — leaves most high earners with a quiet but serious problem: your money is either at risk in volatile markets, locked in low-yield accounts eroding to inflation, or sitting in a 401(k) you can't touch without penalty when opportunity arrives.
+          </p>
+          <p>
+            Worse, when you do need capital quickly — for a deal, a business need, a time-sensitive opportunity — you're back in a bank's waiting room. Approval pending. Terms negotiable. Timeline: theirs.
+          </p>
+          <p class="gold-text opacity-100 font-normal">
+            This guide explains how a different structure changes that equation entirely.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3 BENEFIT PILLARS
+  ═══════════════════════════════════════════ -->
+  <section class="px-6 py-16 md:py-20 flex justify-center navy-deep relative overflow-hidden">
+
+    <!-- ═══════════════════════════════════════════
+         DECORATIVE BACKGROUND — navy waves + gold streaks + particles
+         Pure CSS/SVG — no external image needed.
+         pointer-events-none so it never blocks clicks.
+    ═══════════════════════════════════════════ -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+
+      <!-- Base gradient: dark navy foundation -->
+      <div class="absolute inset-0" style="background: linear-gradient(160deg, #050D1A 0%, #0A1628 45%, #0D1E3A 100%);"></div>
+
+      <!-- Wave layer 1 — deep navy, diagonal sweep top-left -->
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,80 400,20 600,100 C800,180 1000,60 1200,120 L1200,0 Z" fill="rgba(15,32,64,0.7)"/>
+        <path d="M0,80 C150,160 350,80 550,170 C750,260 950,140 1200,200 L1200,0 Z" fill="rgba(10,22,40,0.5)"/>
+        <path d="M0,200 C180,260 380,190 560,260 C740,330 940,230 1200,280 L1200,0 L0,0 Z" fill="rgba(5,13,26,0.35)"/>
+      </svg>
+
+      <!-- Wave layer 2 — mid-section volume, lower half -->
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,350 C200,300 400,380 600,320 C800,260 1000,340 1200,300 L1200,600 L0,600 Z" fill="rgba(15,32,64,0.55)"/>
+        <path d="M0,430 C250,380 450,450 650,400 C850,350 1050,420 1200,390 L1200,600 L0,600 Z" fill="rgba(10,22,40,0.45)"/>
+      </svg>
+
+      <!-- Gold light streak 1 — wide, luminous sweep across bottom half -->
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="streak1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cfa85d" stop-opacity="0"/>
+            <stop offset="30%" stop-color="#cfa85d" stop-opacity="0.6"/>
+            <stop offset="55%" stop-color="#cfa85d" stop-opacity="0.9"/>
+            <stop offset="75%" stop-color="#cfa85d" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#cfa85d" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="glow1" x="-20%" y="-200%" width="140%" height="500%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="streak2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cfa85d" stop-opacity="0"/>
+            <stop offset="25%" stop-color="#cfa85d" stop-opacity="0.4"/>
+            <stop offset="60%" stop-color="#cfa85d" stop-opacity="0.7"/>
+            <stop offset="85%" stop-color="#cfa85d" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#cfa85d" stop-opacity="0"/>
+          </linearGradient>
+          <filter id="glow2" x="-20%" y="-300%" width="140%" height="700%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="streak3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cfa85d" stop-opacity="0"/>
+            <stop offset="40%" stop-color="#cfa85d" stop-opacity="0.3"/>
+            <stop offset="65%" stop-color="#cfa85d" stop-opacity="0.55"/>
+            <stop offset="90%" stop-color="#cfa85d" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#cfa85d" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Main gold sweep — widest, most prominent -->
+        <path d="M-50,480 C150,420 350,500 580,430 C810,360 1000,450 1280,390" stroke="url(#streak1)" stroke-width="2.5" fill="none" filter="url(#glow1)"/>
+        <!-- Second streak slightly above, thinner -->
+        <path d="M-50,455 C180,400 380,470 600,410 C820,350 1020,430 1280,370" stroke="url(#streak2)" stroke-width="1.5" fill="none" filter="url(#glow2)"/>
+        <!-- Third streak, widest glow blur -->
+        <path d="M-50,510 C120,455 320,525 560,465 C800,405 1010,475 1280,425" stroke="url(#streak3)" stroke-width="4" fill="none" opacity="0.4" filter="url(#glow1)"/>
+      </svg>
+
+      <!-- Warm bokeh dots — amber/orange glow spheres -->
+      <div class="absolute" style="left:8%;top:18%;width:90px;height:90px;background:radial-gradient(circle,rgba(200,120,30,0.28) 0%,transparent 70%);border-radius:50%;filter:blur(6px);"></div>
+      <div class="absolute" style="left:3%;top:62%;width:60px;height:60px;background:radial-gradient(circle,rgba(180,100,20,0.22) 0%,transparent 70%);border-radius:50%;filter:blur(5px);"></div>
+      <div class="absolute" style="right:6%;top:12%;width:70px;height:70px;background:radial-gradient(circle,rgba(210,140,40,0.3) 0%,transparent 70%);border-radius:50%;filter:blur(7px);"></div>
+      <div class="absolute" style="right:18%;top:55%;width:50px;height:50px;background:radial-gradient(circle,rgba(190,110,25,0.2) 0%,transparent 70%);border-radius:50%;filter:blur(5px);"></div>
+
+      <!-- Gold sparkle dots — small, precise points along streak path -->
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="180" cy="462" r="2.5" fill="#cfa85d" opacity="0.85"/>
+        <circle cx="320" cy="488" r="1.8" fill="#cfa85d" opacity="0.75"/>
+        <circle cx="490" cy="438" r="2.2" fill="#cfa85d" opacity="0.9"/>
+        <circle cx="640" cy="415" r="1.5" fill="#cfa85d" opacity="0.7"/>
+        <circle cx="760" cy="440" r="2.8" fill="#cfa85d" opacity="0.8"/>
+        <circle cx="900" cy="422" r="1.6" fill="#cfa85d" opacity="0.85"/>
+        <circle cx="1040" cy="445" r="2.0" fill="#cfa85d" opacity="0.7"/>
+        <circle cx="1150" cy="408" r="1.8" fill="#cfa85d" opacity="0.75"/>
+        <!-- Scattered upper particles -->
+        <circle cx="95"  cy="210" r="1.4" fill="#cfa85d" opacity="0.45"/>
+        <circle cx="280" cy="145" r="1.2" fill="#cfa85d" opacity="0.4"/>
+        <circle cx="700" cy="95"  r="1.5" fill="#cfa85d" opacity="0.5"/>
+        <circle cx="980" cy="175" r="1.3" fill="#cfa85d" opacity="0.45"/>
+        <circle cx="1100" cy="85" r="1.8" fill="#cfa85d" opacity="0.55"/>
+        <!-- Mid scattered -->
+        <circle cx="410" cy="310" r="1.2" fill="#cfa85d" opacity="0.35"/>
+        <circle cx="830" cy="285" r="1.4" fill="#cfa85d" opacity="0.4"/>
+      </svg>
+
+      
+
+      <!-- Subtle geometric grid lines — faint, top-left corner -->
+      <svg class="absolute" style="left:0;top:0;width:260px;height:260px;opacity:0.08;" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="80"  x2="180" y2="260" stroke="#cfa85d" stroke-width="0.7"/>
+        <line x1="0" y1="140" x2="120" y2="260" stroke="#cfa85d" stroke-width="0.7"/>
+        <line x1="40" y1="0"  x2="260" y2="200" stroke="#cfa85d" stroke-width="0.7"/>
+        <line x1="100" y1="0" x2="260" y2="140" stroke="#cfa85d" stroke-width="0.7"/>
+      </svg>
+
+    </div>
+    <!-- END decorative background -->
+
+    <div class="relative max-w-5xl w-full">
+
+      <div class="text-center mb-14">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">How the Equation Changes</p>
+        <h2 class="font-display text-3xl md:text-4xl text-cream font-semibold">Three Advantages Most Investors Never Find Together</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Pillar 1 -->
+        <div class="pillar-card rounded p-8 fade-in">
+          <div class="w-10 h-10 border border-gold-400 border-opacity-40 flex items-center justify-center mb-6">
+            <span class="font-display gold-text text-xl font-bold">I</span>
+          </div>
+          <h3 class="font-display text-xl text-cream font-semibold mb-3 leading-snug">
+            Your Money Compounds — Even When You Borrow It
+          </h3>
+          <p class="font-body font-light text-cream opacity-70 text-sm leading-relaxed">
+            Policy loans don't interrupt your cash value's growth. Your full balance continues earning while your capital is deployed elsewhere — a structural advantage no bank account or brokerage offers.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card rounded p-8 fade-in fade-in-delay-1">
+          <div class="w-10 h-10 border border-gold-400 border-opacity-40 flex items-center justify-center mb-6">
+            <span class="font-display gold-text text-xl font-bold">II</span>
+          </div>
+          <h3 class="font-display text-xl text-cream font-semibold mb-3 leading-snug">
+            No Application. No Approval. No Wait.
+          </h3>
+          <p class="font-body font-light text-cream opacity-70 text-sm leading-relaxed">
+            Access capital in days without credit checks, income verification, or restrictive covenants. Repayment is on your schedule. When a deal requires speed, you move — not because you got approved, but because you already own the capital.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card rounded p-8 fade-in fade-in-delay-2">
+          <div class="w-10 h-10 border border-gold-400 border-opacity-40 flex items-center justify-center mb-6">
+            <span class="font-display gold-text text-xl font-bold">III</span>
+          </div>
+          <h3 class="font-display text-xl text-cream font-semibold mb-3 leading-snug">
+            Tax-Deferred Growth. Tax-Advantaged Access.
+          </h3>
+          <p class="font-body font-light text-cream opacity-70 text-sm leading-relaxed">
+            Cash value compounds without annual tax reporting. For high earners who've maxed qualified plans, this creates a flexible third accumulation bucket — one that grows in the background without the drag most savings tools carry silently.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Section CTA -->
+      <div class="mt-12 text-center">
+        <a
+          href="https://cashflowbanking.com/how-it-works/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-gold inline-block px-10 py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+        >
+          Explore How It Works →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHO THIS IS FOR
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-24 flex justify-center">
+    <div class="max-w-4xl w-full">
+
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl text-cream font-semibold">
+          Built for the Builder, Not the Speculator
+        </h2>
+        <p class="font-body font-light text-cream opacity-60 mt-4 max-w-xl mx-auto text-base leading-relaxed">
+          This strategy rewards patience and discipline — the same qualities that quietly build lasting wealth in any field.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">Business owners who need capital faster than banks can deliver it</p>
+        </div>
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">High earners who have maxed out their 401(k) and IRA and are searching for what's next</p>
+        </div>
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">Real estate and private equity investors who value deal speed over bank approval timelines</p>
+        </div>
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">Investors who want growth that doesn't depend on what the market does next week</p>
+        </div>
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">Professionals building generational wealth, not just a retirement account</p>
+        </div>
+        <div class="gold-border-left pl-5 py-2">
+          <p class="font-body text-sm text-cream opacity-80 checklist-item">Anyone who values control over their capital more than they value chasing upside</p>
+        </div>
+      </div>
+
+      <!-- Section CTA -->
+      <div class="mt-12 text-center">
+        <a
+          href="https://cashflowbanking.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-gold inline-block px-10 py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+        >
+          Continue Exploring →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════════ -->
+  <section class="px-6 py-16 md:py-24 flex justify-center testimonials-section">
+    <div class="max-w-5xl w-full">
+
+      <div class="text-center mb-14">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">Real Results</p>
+        <h2 class="font-display text-3xl md:text-4xl text-cream font-semibold">What Our Clients Are Saying</h2>
+        <p class="font-body font-light text-cream opacity-60 mt-4 max-w-xl mx-auto text-base leading-relaxed">
+          From business owners to families — this strategy has changed how they think about money.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Testimonial 1 -->
+        <div class="pillar-card rounded p-8 fade-in flex flex-col justify-between">
+          <div>
+            <div class="mb-5">
+              <span class="gold-text text-base">★★★★★</span>
+            </div>
+            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
+              "Cash Flow Banking is the most efficient way that I have found to preserve and create additional wealth — and I can do it without taking on unnecessary risks. I have used my policy for personal as well as business use. I am getting ready to use my policy to buy a new car."
+            </p>
+          </div>
+          <div class="border-t border-white border-opacity-10 pt-5">
+            <p class="font-body font-medium text-cream text-sm">Justin A.</p>
+            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Business &amp; Personal Use</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="pillar-card rounded p-8 fade-in fade-in-delay-1 flex flex-col justify-between">
+          <div>
+            <div class="mb-5">
+              <span class="gold-text text-base">★★★★★</span>
+            </div>
+            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
+              "When the real estate market went upside down in 2008, I owned several properties and was able to bail myself out of credit card debt and real estate dramas that could have taken me down the path of bankruptcy — all through the use of my own Cash Flow Bank."
+            </p>
+          </div>
+          <div class="border-t border-white border-opacity-10 pt-5">
+            <p class="font-body font-medium text-cream text-sm">Jeffrey</p>
+            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Real Estate Investor</p>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="pillar-card rounded p-8 fade-in fade-in-delay-2 flex flex-col justify-between">
+          <div>
+            <div class="mb-5">
+              <span class="gold-text text-base">★★★★★</span>
+            </div>
+            <p class="font-body font-light text-cream opacity-80 text-sm leading-relaxed mb-6">
+              "My Cash Flow Bank has opened up more investment opportunities for myself and my family. I have reformed the traditional investment knowledge that I learned in business school. My greatest disappointment is that I didn't know about this opportunity 10 years ago."
+            </p>
+          </div>
+          <div class="border-t border-white border-opacity-10 pt-5">
+            <p class="font-body font-medium text-cream text-sm">Ian F.</p>
+            <p class="font-body text-xs gold-text opacity-70 mt-1 tracking-wide uppercase">Investor &amp; Business School Graduate</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pull quote -->
+      <div class="mt-14 text-center max-w-2xl mx-auto">
+        <div class="gold-line mx-auto mb-8 opacity-30" style="max-width:100px;"></div>
+        <p class="font-display text-xl md:text-2xl text-cream font-light leading-relaxed italic" style="opacity:0.9;">
+          "This is the first time I felt like I was playing the same game the wealthy play."
+        </p>
+        <p class="font-body text-xs gold-text tracking-[0.25em] uppercase mt-5">— Ron H., Real Estate Investor</p>
+        <div class="gold-line mx-auto mt-8 opacity-30" style="max-width:100px;"></div>
+
+        <!-- Real Results CTAs -->
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="https://cashflowbanking.com/resources/#success-stories"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold inline-block px-10 py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+          >
+            See More Results →
+          </a>
+          <a
+            href="https://meetings-na2.hubspot.com/will-smethurst/cash-flow-banking-website2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold inline-block px-10 py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+          >
+            Schedule a Consultation →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="gold-line mx-auto max-w-4xl opacity-20"></div>
+
+  <div class="gold-line mx-auto max-w-4xl opacity-20"></div>
+
+  <!-- ═══════════════════════════════════════════
+       WHAT'S INSIDE THE GUIDE
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-20 flex justify-center">
+    <div class="max-w-4xl w-full">
+
+      <div class="text-center mb-10">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">Inside the Free Guide</p>
+        <h2 class="font-display text-3xl text-cream font-semibold">A Clear Look at the Mechanics, Benefits, and Tradeoffs Behind the Strategy.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="flex items-start gap-4">
+          <span class="gold-text font-display font-bold text-2xl leading-none mt-1 flex-shrink-0">01</span>
+          <div>
+            <p class="font-body font-medium text-cream text-sm mb-1">The Business Owner's Secret Advantage</p>
+            <p class="font-body font-light text-cream opacity-55 text-sm leading-relaxed">Why whole life functions as a private capital reserve — and how to use it without disrupting your other assets.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="gold-text font-display font-bold text-2xl leading-none mt-1 flex-shrink-0">02</span>
+          <div>
+            <p class="font-body font-medium text-cream text-sm mb-1">Turning Insurance Into a Capital Engine</p>
+            <p class="font-body font-light text-cream opacity-55 text-sm leading-relaxed">The mechanics of overfunding — paid-up additions, MEC limits, and the design choices that separate efficient policies from expensive ones.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="gold-text font-display font-bold text-2xl leading-none mt-1 flex-shrink-0">03</span>
+          <div>
+            <p class="font-body font-medium text-cream text-sm mb-1">The Tax Advantages Most Advisors Don't Mention</p>
+            <p class="font-body font-light text-cream opacity-55 text-sm leading-relaxed">How properly structured policies compound without annual tax drag, and how qualified access keeps that advantage intact at withdrawal.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="gold-text font-display font-bold text-2xl leading-none mt-1 flex-shrink-0">04</span>
+          <div>
+            <p class="font-body font-medium text-cream text-sm mb-1">Is This Right for You? A Realistic Framework</p>
+            <p class="font-body font-light text-cream opacity-55 text-sm leading-relaxed">Honest trade-offs, common objections, and a readiness checklist so you can make a clear decision — not a pressured one.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FINAL CTA
+  ═══════════════════════════════════════════ -->
+  <section class="relative px-6 py-20 md:py-28 flex justify-center overflow-hidden"
+  style="background-image: url('footer-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(5,11,20,0.55) 0%, rgba(5,11,20,0.70) 100%); z-index:0;"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-gold-400 opacity-5 blur-[80px] pointer-events-none" style="z-index:0;"></div>
+
+    <div class="relative max-w-2xl w-full text-center" style="z-index:2;">
+      <p class="font-body text-xs uppercase mb-4" style="color:#cfa85d; letter-spacing: 0.35em; text-shadow: 0 0 10px rgba(199,185,146,0.35);">Begin Here</p>
+      <h2 class="font-display text-3xl md:text-5xl font-semibold leading-tight mb-4" style="color:#FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.55);">
+        Your Legacy Starts With<br/>the Right Foundation.
+      </h2>
+      <p class="font-body font-light text-base leading-relaxed mb-10 max-w-lg mx-auto" style="color: rgba(255,255,255,0.9);">
+        Download the free Cash Flow Banking guide and understand exactly how this strategy works — before making any decisions.
+      </p>
+
+      <form
+        id="footer-form"
+        onsubmit="handleFormSubmit(event)"
+        class="flex flex-col gap-3 max-w-md mx-auto"
+      >
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          required
+          class="w-full px-5 py-4 rounded font-body text-sm"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          class="w-full px-5 py-4 rounded font-body text-sm"
+        />
+        <button
+          type="submit"
+          class="btn-gold w-full py-4 rounded font-body font-600 text-sm tracking-widest text-navy-900 uppercase"
+        >
+          Download the Free Guide →
+        </button>
+      </form>
+
+      <!-- Secondary CTA: skip ahead to a consult -->
+      <div class="mt-4 max-w-md mx-auto">
+        <a
+          href="https://meetings-na2.hubspot.com/will-smethurst/cash-flow-banking-website2"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full py-4 rounded font-body font-600 text-sm tracking-widest uppercase text-center"
+          style="background:transparent;border:1.5px solid #cfa85d;color:#cfa85d;transition:all 0.3s ease;"
+          onmouseover="this.style.background='#cfa85d';this.style.color='#0A1628';"
+          onmouseout="this.style.background='transparent';this.style.color='#cfa85d';"
+        >
+          Start Your Personalized Review →
+        </a>
+      </div>
+
+      <p class="font-body text-xs text-cream opacity-35 mt-5 tracking-wide">
+        No obligation. No sales call required to receive the guide.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="cream-section border-t px-6 py-8" style="border-color: rgba(10,22,40,0.08);">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-xs text-cream tracking-wide" style="opacity:0.55;">
+        © 2026 CashflowBanking.com — All Rights Reserved
+      </p>
+      <p class="font-body text-xs text-cream text-center leading-relaxed max-w-lg" style="opacity:0.5;">
+        This guide is for educational purposes only and does not constitute financial, legal, or tax advice. Consult qualified professionals before making financial decisions. Life insurance products are subject to underwriting, policy terms, and carrier performance.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ─────────────────────────────────────────────────────────────────
+    // GOOGLE SHEETS INTEGRATION
+    // This function POSTs lead data to a Google Apps Script Web App,
+    // which writes Full Name, Email, and Date Submitted to the sheet.
+    //
+    // SETUP (one-time):
+    //   1. Open your Google Sheet → Extensions → Apps Script
+    //   2. Paste the Apps Script code provided separately into Code.gs
+    //   3. Deploy → New deployment → Web App
+    //      - Execute as: Me
+    //      - Who has access: Anyone
+    //   4. Copy the deployment URL and replace APPS_SCRIPT_URL below
+    // ─────────────────────────────────────────────────────────────────
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOdFPgGYS9tQPLOdVn-hvlNz68nKz2G8Pu-66QhUuBcqRmfAcv-e5-X4Uu2RIJoWi7/exec';
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const name  = form.querySelector('input[name="name"]').value.trim();
+      const email = form.querySelector('input[name="email"]').value.trim();
+
+      // Disable button to prevent double-submit
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      const payload = { name: name, email: email };
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        // Trigger PDF download
+        const link = document.createElement('a');
+        link.href = 'Cash Flow Banking eBook.pdf';
+        link.download = 'Cash Flow Banking eBook.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Reset button and form — stay on page
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download the Free Guide →';
+        form.reset();
+      })
+      .catch(() => {
+        // Even on error, still deliver the guide — stay on page
+        const link = document.createElement('a');
+        link.href = 'Cash Flow Banking eBook.pdf';
+        link.download = 'Cash Flow Banking eBook.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Reset button and form — stay on page
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download the Free Guide →';
+        form.reset();
+      });
+    }
+
+    // Intersection Observer for scroll-triggered fade-ins
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
