@@ -121,17 +121,19 @@
     }
 
     input[type="text"], input[type="email"] {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.40);
+      border: 1px solid rgba(255,255,255,0.50);
       color: #FFFFFF;
-      transition: border-color 0.3s ease;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: border-color 0.3s ease, background 0.3s ease;
     }
     input[type="text"]:focus, input[type="email"]:focus {
       outline: none;
-      border-color: rgba(212,175,55,0.6);
-      background: rgba(5,11,20,0.65);
+      border-color: rgba(212,175,55,0.8);
+      background: rgba(0,0,0,0.55);
     }
-    input::placeholder { color: rgba(255,255,255,0.6); }
+    input::placeholder { color: rgba(255,255,255,0.85); }
 
     .guide-mockup {
       background: linear-gradient(145deg, #0F2040, #050D1A);
@@ -259,7 +261,7 @@
           </button>
         </form>
 
-        <p class="font-body text-xs text-cream opacity-40 tracking-wide">
+        <p class="font-body text-xs text-cream tracking-wide" style="opacity:0.75; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">
           No sales call required. No obligation. Instant access.
         </p>
       </div>
@@ -744,7 +746,7 @@
         </a>
       </div>
 
-      <p class="font-body text-xs text-cream opacity-35 mt-5 tracking-wide">
+      <p class="font-body text-xs text-cream mt-5 tracking-wide" style="opacity:0.75; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">
         No obligation. No sales call required to receive the guide.
       </p>
     </div>
