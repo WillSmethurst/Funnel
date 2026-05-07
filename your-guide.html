@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Guide | Cash Flow Banking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#050D1A',
+              900: '#0A1628',
+              800: '#0F2040',
+            },
+            gold: {
+              400: '#cfa85d',
+              500: '#cfa85d',
+              600: '#cfa85d',
+            },
+            cream: '#F5F0E8',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body: ['Jost', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f2efe8;
+      color: #0A1628;
+    }
+    h1, h2, h3, .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    .gold-line {
+      background: linear-gradient(90deg, transparent, #cfa85d, transparent);
+      height: 1px;
+    }
+    .gold-text { color: #cfa85d; }
+
+    /* Cream sections — warm, welcoming fill with navy ink */
+    .cream-section {
+      background-color: #f2efe8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Soft fade-in on load */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .fade-in-delay-1 { animation-delay: 0.15s; }
+    .fade-in-delay-2 { animation-delay: 0.30s; }
+    .fade-in-delay-3 { animation-delay: 0.45s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Primary gold button — matches landing page */
+    .btn-gold {
+      background: linear-gradient(135deg, #cfa85d 0%, #cfa85d 50%, #cfa85d 100%);
+      background-size: 200% 200%;
+      transition: all 0.3s ease;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+      font-weight: 600;
+    }
+    .btn-gold:hover {
+      background-position: right center;
+      box-shadow: 0 6px 32px rgba(212,175,55,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Inline soft consultation link */
+    .soft-consult-link {
+      color: #cfa85d;
+      border-bottom: 1px solid rgba(212,175,55,0.4);
+      transition: border-color 0.3s ease;
+    }
+    .soft-consult-link:hover {
+      border-color: rgba(212,175,55,1);
+    }
+
+    /* Book cover with hover lift — clickable to download */
+    .guide-cover-link {
+      display: inline-block;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      cursor: pointer;
+    }
+    .guide-cover-link:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+    .guide-cover-link img {
+      box-shadow: 0 24px 60px rgba(10,22,40,0.20), 0 4px 16px rgba(10,22,40,0.10);
+      border: 1px solid rgba(212,175,55,0.30);
+      transition: box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+    .guide-cover-link:hover img {
+      box-shadow: 0 32px 70px rgba(212,175,55,0.30), 0 6px 20px rgba(10,22,40,0.15);
+      border-color: rgba(212,175,55,0.65);
+    }
+
+    /* Numbered "what happens next" items */
+    .next-step-number {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: #cfa85d;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — WELCOME / HEADLINE
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 pt-20 pb-16 md:pt-28 md:pb-20 flex justify-center">
+    <div class="max-w-3xl w-full text-center">
+
+      <!-- Eyebrow -->
+      <p class="fade-in font-body text-xs tracking-[0.35em] uppercase gold-text mb-6">
+        Thank You
+      </p>
+
+      <!-- Headline -->
+      <h1 class="fade-in fade-in-delay-1 font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-navy-900 leading-[1.1] mb-6">
+        You've Taken the<br/>
+        First Step Toward <em class="gold-text not-italic">Control.</em>
+      </h1>
+
+      <!-- Subhead -->
+      <p class="fade-in fade-in-delay-2 font-body font-light text-base md:text-lg text-navy-900 opacity-75 max-w-xl mx-auto leading-relaxed">
+        Your guide is ready below. Here's what you'll find inside — and what happens from here.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 2 — WHY THIS MATTERS (Pain + Solution + Soft CTA)
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-20 flex justify-center">
+    <div class="max-w-3xl w-full">
+
+      <div class="text-center mb-10">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">Why This Matters</p>
+        <h2 class="font-display text-3xl md:text-4xl text-navy-900 font-semibold leading-snug">
+          The Quiet Problem Most Earners Don't See Until They Need Capital.
+        </h2>
+      </div>
+
+      <div class="space-y-5 font-body font-light text-navy-900 text-base md:text-lg leading-relaxed" style="opacity:0.85;">
+        <p>
+          For most high earners, the standard playbook works — until the moment you actually need capital. Then the cracks show. Your 401(k) is locked behind penalties. Your savings is eroding to inflation. Your investments swing with whatever the market does this quarter. And when capital is needed quickly — for a deal, a business need, an opportunity that won't wait — you're back in a bank's waiting room asking permission to access money you should already control.
+        </p>
+        <p>
+          The guide in your hands explains a different structure. Instead of capital you can't touch or markets you can't predict, you build a private reserve that grows tax-deferred, can be borrowed against on your schedule with no credit check or income verification, and continues compounding even while it's deployed elsewhere. It isn't a replacement for everything else in your portfolio — it's the missing structural piece that gives you control over the timing and access of your own money.
+        </p>
+      </div>
+
+      <!-- Soft consultation mention — for the "I'm ready now" reader -->
+      <div class="mt-10 pt-8 border-t" style="border-color: rgba(10,22,40,0.10);">
+        <p class="font-body text-sm md:text-base text-navy-900 italic leading-relaxed text-center" style="opacity:0.75;">
+          If you'd rather skip the reading and discuss your specific situation directly with our team,
+          <a href="https://meetings-na2.hubspot.com/will-smethurst/cash-flow-banking-website2" target="_blank" rel="noopener noreferrer" class="soft-consult-link not-italic font-medium">book a complimentary call here →</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 3 — WHAT HAPPENS NEXT
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-20 flex justify-center">
+    <div class="max-w-3xl w-full">
+
+      <div class="text-center mb-12">
+        <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">What Happens Next</p>
+        <h2 class="font-display text-3xl md:text-4xl text-navy-900 font-semibold leading-snug">
+          Three Quick Things to Know.
+        </h2>
+      </div>
+
+      <div class="space-y-8 max-w-2xl mx-auto">
+
+        <!-- Step 01 -->
+        <div class="flex items-start gap-5">
+          <span class="next-step-number">01</span>
+          <div class="pt-1">
+            <p class="font-body font-medium text-navy-900 text-base md:text-lg mb-1">Download your guide below.</p>
+            <p class="font-body font-light text-navy-900 text-sm md:text-base leading-relaxed" style="opacity:0.70;">The full strategy is yours to keep — return to it anytime as you work through whether this fits your situation.</p>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="flex items-start gap-5">
+          <span class="next-step-number">02</span>
+          <div class="pt-1">
+            <p class="font-body font-medium text-navy-900 text-base md:text-lg mb-1">A copy is also on its way to your inbox.</p>
+            <p class="font-body font-light text-navy-900 text-sm md:text-base leading-relaxed" style="opacity:0.70;">Watch for an email shortly so you have a saved version for later reference.</p>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="flex items-start gap-5">
+          <span class="next-step-number">03</span>
+          <div class="pt-1">
+            <p class="font-body font-medium text-navy-900 text-base md:text-lg mb-1">Schedule a consultation when you're ready.</p>
+            <p class="font-body font-light text-navy-900 text-sm md:text-base leading-relaxed" style="opacity:0.70;">Whenever you'd like to talk through how this strategy applies to your specific situation, our team is one click away.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 4 — DOWNLOAD THE GUIDE (Clickable Cover)
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-20 flex justify-center">
+    <div class="max-w-3xl w-full text-center">
+
+      <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">Your Guide</p>
+      <h2 class="font-display text-3xl md:text-4xl text-navy-900 font-semibold leading-snug mb-3">
+        Click the Cover to Download.
+      </h2>
+      <p class="font-body font-light text-navy-900 text-base md:text-lg max-w-md mx-auto leading-relaxed mb-12" style="opacity:0.75;">
+        Your complete Cash Flow Banking guide — yours to keep.
+      </p>
+
+      <!-- Clickable book cover -->
+      <a href="Cash Flow Banking eBook.pdf" download="Cash Flow Banking eBook.pdf" class="guide-cover-link" aria-label="Download your Cash Flow Banking guide (PDF)">
+        <img
+          src="guide-cover.png"
+          alt="Your Cash Flow Banking Guide"
+          class="w-56 md:w-64 rounded-sm mx-auto"
+        />
+      </a>
+
+      <p class="font-body text-xs tracking-[0.2em] gold-text uppercase mt-8" style="opacity:0.85;">
+        ↓ Click to download (PDF)
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Gold divider -->
+  <div class="gold-line mx-auto max-w-4xl opacity-30"></div>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5 — CONSULTATION CTA (Strong Bottom)
+  ═══════════════════════════════════════════ -->
+  <section class="cream-section px-6 py-16 md:py-24 flex justify-center">
+    <div class="max-w-3xl w-full text-center">
+
+      <p class="font-body text-xs tracking-[0.3em] gold-text uppercase mb-3">The Next Move</p>
+      <h2 class="font-display text-3xl md:text-5xl text-navy-900 font-semibold leading-tight mb-5">
+        Ready to See How This<br/>
+        Applies to <em class="gold-text not-italic">You</em>?
+      </h2>
+      <p class="font-body font-light text-navy-900 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10" style="opacity:0.80;">
+        A complimentary 30-minute call with our team to walk through your specific situation — your goals, your constraints, your capital position. No sales pressure. Just clarity on whether this strategy fits and what implementation would actually look like.
+      </p>
+
+      <a
+        href="https://meetings-na2.hubspot.com/will-smethurst/cash-flow-banking-website2"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-gold inline-block px-12 py-5 rounded font-body text-sm tracking-widest text-navy-900 uppercase"
+      >
+        Schedule a Consultation →
+      </a>
+
+      <p class="font-body text-xs text-navy-900 mt-6 tracking-wide" style="opacity:0.55;">
+        No obligation. No sales pitch. Just a conversation.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER (matching landing page)
+  ═══════════════════════════════════════════ -->
+  <footer class="cream-section border-t px-6 py-8" style="border-color: rgba(10,22,40,0.08);">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-xs text-navy-900 tracking-wide" style="opacity:0.55;">
+        © 2026 CashflowBanking.com — All Rights Reserved
+      </p>
+      <p class="font-body text-xs text-navy-900 text-center leading-relaxed max-w-lg" style="opacity:0.50;">
+        This guide is for educational purposes only and does not constitute financial, legal, or tax advice. Consult qualified professionals before making financial decisions. Life insurance products are subject to underwriting, policy terms, and carrier performance.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
