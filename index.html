@@ -740,32 +740,12 @@
         body: JSON.stringify(payload)
       })
       .then(() => {
-        // Trigger PDF download
-        const link = document.createElement('a');
-        link.href = 'Cash Flow Banking eBook.pdf';
-        link.download = 'Cash Flow Banking eBook.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Reset button and form — stay on page
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Download the Free Guide →';
-        form.reset();
+        // Redirect to the thank-you page where the user can download the guide
+        window.location.href = 'your-guide.html';
       })
       .catch(() => {
-        // Even on error, still deliver the guide — stay on page
-        const link = document.createElement('a');
-        link.href = 'Cash Flow Banking eBook.pdf';
-        link.download = 'Cash Flow Banking eBook.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Reset button and form — stay on page
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Download the Free Guide →';
-        form.reset();
+        // Even on network error, still send the user to the thank-you page
+        window.location.href = 'your-guide.html';
       });
     }
 
